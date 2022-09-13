@@ -1,0 +1,20 @@
+.item {
+  color: greenyellow;
+  margin-bottom: 10px;
+}
+
+.item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; 
+}
+
+.onePost {
+  display: flex;
+  align-items: center;
+}
+
+.onePost span{
+   padding-left: 10px;
+}
+
