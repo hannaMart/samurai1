@@ -1,4 +1,6 @@
-import { rerender } from "../rerender";
+let rerender = () => {
+    console.log("State changed");
+}
 
 let state = {
     dialoguesPage: {
@@ -33,13 +35,17 @@ let state = {
         ]
     }
 }
+// Pattern OBSERVER is used here below
+export const subscribe=(observer) => {
+     rerender = observer; // rerender f-n is initialized above and it gets its any functionality from the observer
+}
 
 export let updateNewPostText = (newText) => { 
     state.profilePage.newPostText = newText;
     rerender(state);
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 3,
         message: state.profilePage.newPostText,
@@ -50,7 +56,7 @@ export let addPost = () => {
     rerender(state);
 }
 
-export let addMessage = (sentMessage) => { 
+export const addMessage = (sentMessage) => { 
     let newMessage = {
         id: 5,
         message: sentMessage,
